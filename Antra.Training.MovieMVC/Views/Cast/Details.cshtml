@@ -1,0 +1,50 @@
+﻿@model ApplicationCore.Models.CastDetailsModel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="@Model.ProfilePath" class="img-fluid rounded" alt="@Model.Name" />
+        </div>
+
+        <div class="col-md-9">
+            <h2>@Model.Name</h2>
+            <p>
+                <strong>Gender:</strong>
+                @(Model.Gender == "1" ? "Female" :
+                                Model.Gender == "2" ? "Male" :
+                                Model.Gender == "3" ? "Non-Binary" : Model.Gender)
+            </p>
+
+            @if (!string.IsNullOrEmpty(Model.TmdbUrl))
+            {
+                <p>
+                    <a href="@Model.TmdbUrl" target="_blank">TMDB Profile</a>
+                </p>
+            }
+
+            <h4 class="mt-4">Movies</h4>
+
+            <div class="row">
+                @foreach (var movie in Model.Movies)
+                {
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100">
+                            <img src="@movie.PosterUrl" class="card-img-top" alt="@movie.Title" />
+                            <div class="card-body">
+                                <h6 class="card-title">@movie.Title</h6>
+                                <p>Rating: @movie.Rating</p>
+                                <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id" class="btn btn-primary btn-sm">
+                                    Movie Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
