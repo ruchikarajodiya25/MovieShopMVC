@@ -1,0 +1,16 @@
+﻿@model ApplicationCore.Entities.Review
+
+<h2>Review Details</h2>
+
+<div>
+    <p><strong>Id:</strong> @Model.Id</p>
+    <p><strong>Movie Id:</strong> @Model.MovieId</p>
+    <p><strong>User Id:</strong> @Model.UserId</p>
+    <p><strong>Rating:</strong> @Model.Rating</p>
+    <p><strong>Review:</strong> @Model.ReviewText</p>
+    <p><strong>Created Date:</strong> @Model.CreatedDate</p>
+    <p><strong>Updated Date:</strong> @Model.UpdatedDate</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>
+<a asp-action="Index" class="btn btn-secondary">Back</a>

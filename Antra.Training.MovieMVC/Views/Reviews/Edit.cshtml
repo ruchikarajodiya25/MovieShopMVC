@@ -1,0 +1,30 @@
+﻿@model ApplicationCore.Entities.Review
+
+<h2>Edit Review</h2>
+
+<form asp-action="Edit" method="post">
+    <input asp-for="Id" type="hidden" />
+
+    <div class="mb-3">
+        <label asp-for="MovieId" class="form-label"></label>
+        <input asp-for="MovieId" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="UserId" class="form-label"></label>
+        <input asp-for="UserId" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Rating" class="form-label"></label>
+        <input asp-for="Rating" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ReviewText" class="form-label"></label>
+        <input asp-for="ReviewText" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
